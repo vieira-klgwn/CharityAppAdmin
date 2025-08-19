@@ -11,7 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import vector.CharityApp.Admin.models.ChangePasswordRequest;
 import vector.CharityApp.Admin.models.User;
-import vector.CharityApp.Admin.models.UserDTO;
+import vector.CharityApp.Admin.dto.UserDTO;
 import vector.CharityApp.Admin.services.UserService;
 
 import java.security.Principal;

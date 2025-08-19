@@ -1,4 +1,4 @@
-package vector.CharityApp.Admin.models;
+package vector.CharityApp.Admin.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

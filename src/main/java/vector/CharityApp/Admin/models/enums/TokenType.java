@@ -1,4 +1,4 @@
-package vector.CharityApp.Admin.models;
+package vector.CharityApp.Admin.models.enums;
 
 public enum TokenType {
     BEARER,

@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import vector.CharityApp.Admin.models.Role;
+import vector.CharityApp.Admin.models.enums.Role;
 
 @Data
 @Builder

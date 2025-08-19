@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>vector</groupId>
-	<artifactId>TaskSync</artifactId>
+	<artifactId>CharityApplication</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>TaskSync</name>
 	<description>A Task Management and Collaboration Platform</description>

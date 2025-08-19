@@ -12,12 +12,12 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import vector.CharityApp.Admin.RegisterRequest;
+import vector.CharityApp.Admin.auth.RegisterRequest;
 import vector.CharityApp.Admin.config.JwtService;
 import vector.CharityApp.Admin.models.Token;
-import vector.CharityApp.Admin.models.TokenType;
+import vector.CharityApp.Admin.models.enums.TokenType;
 import vector.CharityApp.Admin.models.User;
-import vector.CharityApp.Admin.models.Gender;
+import vector.CharityApp.Admin.models.enums.Gender;
 import vector.CharityApp.Admin.repositories.TokenRepository;
 import vector.CharityApp.Admin.repositories.UserRepository;
 

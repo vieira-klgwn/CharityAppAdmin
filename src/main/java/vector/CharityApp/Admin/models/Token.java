@@ -6,10 +6,11 @@ import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
-import vector.CharityApp.Admin.TokenType;
-import vector.CharityApp.Admin.User;
+import vector.CharityApp.Admin.models.enums.TokenType;
+
 
 import java.time.LocalDateTime;
+
 
 @Data
 @Builder
@@ -28,7 +29,7 @@ public class Token {
     private String token;
 
     @Enumerated(EnumType.STRING)
-    private TokenType tokenType = vector.CharityApp.Admin.models.TokenType.BEARER;
+    private TokenType tokenType = vector.CharityApp.Admin.models.enums.TokenType.BEARER;
 
     private boolean revoked;
 
@@ -38,6 +39,7 @@ public class Token {
     @JoinColumn(name = "user_id")
     @ToString.Exclude
     private User user;
+
 
 
     @CreatedBy

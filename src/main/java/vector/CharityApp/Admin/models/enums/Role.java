@@ -1,4 +1,4 @@
-package vector.CharityApp.Admin.models;
+package vector.CharityApp.Admin.models.enums;
 
 
 
@@ -10,12 +10,12 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static vector.CharityApp.Admin.models.Permission.*;
+import static vector.CharityApp.Admin.models.enums.Permission.*;
 
 
 @RequiredArgsConstructor
 public enum Role {
-    USER(Collections.emptySet()),
+    DONOR(Collections.emptySet()),
     ADMIN(
             Set.of(ADMIN_READ,
                     ADMIN_CREATE,
@@ -34,19 +34,8 @@ public enum Role {
                     MANAGER_UPDATE,
                     MANAGER_DELETE
             )
-    ),
-    TEAM_LEAD(
-            Set.of(
-                    MANAGER_READ,
-                    MANAGER_CREATE,
-                    MANAGER_UPDATE,
-                    MANAGER_DELETE,
-                    TEAM_LEAD_CREATE,
-                    TEAM_LEAD_ASSIGN,
-                    TEAM_LEAD_ADD_MEMBER
+    );
 
-
-    ));
 
     @Getter
     private final Set<Permission> permissions;

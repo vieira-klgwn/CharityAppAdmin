@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import vector.CharityApp.Admin.models.enums.Gender;
+import vector.CharityApp.Admin.models.enums.Role;
 
 import java.util.Collection;
 import java.util.List;
@@ -41,15 +43,7 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private Role role;
 
-    @ManyToMany
-    @JoinTable(
-            name = "user_teams",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "team_id")
-    )
-    @JsonIgnore
-    @ToString.Exclude
-    private List<Team> teams;
+
 
     @Override
     @JsonIgnore

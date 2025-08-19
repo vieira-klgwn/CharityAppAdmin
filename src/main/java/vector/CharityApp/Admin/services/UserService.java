@@ -54,7 +54,6 @@ public class UserService {
             user.setEmail(updatedUser.getEmail());
             user.setRole(updatedUser.getRole());
             user.setGender(updatedUser.getGender());
-            user.setTeams(updatedUser.getTeams());
             return userRepository.save(user);
         }
         throw new RuntimeException("User with id " + id + " not found");
