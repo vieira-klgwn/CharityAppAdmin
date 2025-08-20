@@ -10,5 +10,6 @@ public class VideosService {
      * download a video
      * watch a video
      * delete a video
+     * increase the number of views after being viewed
      */
 }

@@ -1,13 +1,15 @@
 package vector.CharityApp.Admin.models;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import vector.CharityApp.Admin.models.enums.EventStatus;
+
+import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -20,7 +22,7 @@ public class Event {
 
     /***
      * make an event model with feautures
-     * name of events
+     * name of event
      * status
      * organizer
      * event description
@@ -36,4 +38,32 @@ public class Event {
      * tags for the event
      * Video video for the event
      */
+
+    private String eventName;
+    private String description;
+    private String location;
+    private String type;
+
+    @Enumerated(EnumType.STRING)
+    private EventStatus status;
+
+    private String organizer;
+    private int attendees;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
+
+    private String organization;
+    private String organizerEmail;
+    private String organizerPhone;
+    private String tags;
+
+    @OneToMany(mappedBy = "event" ,cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Video> videos;
+
+    @OneToMany(mappedBy = "event")
+    private List<User> donors;
+
+
+
+
 }
