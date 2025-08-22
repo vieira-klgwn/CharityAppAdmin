@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import vector.CharityApp.Admin.models.enums.EventStatus;
 
 import java.time.LocalDateTime;
@@ -48,7 +49,7 @@ public class Event {
     private EventStatus status;
 
     private String organizer;
-    private int attendees;
+    private int capacity;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
 
@@ -58,11 +59,20 @@ public class Event {
     private String tags;
 
     @OneToMany(mappedBy = "event" ,cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
     private List<Video> videos;
 
-    @OneToMany(mappedBy = "event")
-    private List<User> donors;
 
+
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
+    private List<Donation> donations;
+
+    @Enumerated(EnumType.STRING)
+    private EventStatus eventStatus;
+
+    @OneToOne(mappedBy = "event")
+    private SpecificEventDonationAmount specificEventDonationAmount;
 
 
 

@@ -43,13 +43,11 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private Role role;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "user_donation",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name="donation_id")
-    )
-    private List<Donation> donations;
+    @ManyToOne
+    @JoinColumn(name = "event_id")
+    private Event event;
+
+
 
 
 

@@ -1,9 +1,11 @@
 package vector.CharityApp.Admin.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import vector.CharityApp.Admin.models.enums.DonationCause;
 import vector.CharityApp.Admin.models.enums.DonationStatus;
 
@@ -20,7 +22,7 @@ public class Donation {
     private Long id;
     /***
      * attributes like
-     * User donors
+     * User donor
      * Amount
      * Cause (e.g Education)
      * Status
@@ -31,17 +33,18 @@ public class Donation {
 
 
 
-    @ManyToMany(mappedBy = "donations", fetch = FetchType.LAZY, targetEntity = User.class)
-    private List<User> donors;
+    @OneToOne
+    private User donor;
 
-    @ManyToOne
-    @JoinColumn(name = "event_id")
-    private Event event;
+  //removed the event and donors list
 
     @Enumerated(EnumType.STRING)
     private DonationStatus status;
 
     private LocalDateTime donationTime;
+
+    private Double amount;
+
 
     private String donationText;
 
@@ -49,7 +52,6 @@ public class Donation {
 
     @Enumerated(EnumType.STRING)
     private DonationCause donationCause;
-
 
 
 
