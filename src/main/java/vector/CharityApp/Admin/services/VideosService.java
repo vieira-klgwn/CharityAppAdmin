@@ -59,4 +59,11 @@ public class VideosService {
         }
 
     }
+
+    public void deleteVideo(long id) {
+        if (!videoRepository.existsById(id)) {
+            throw new RuntimeException("Video with id " + id + " not found");
+        }
+        videoRepository.deleteById(id);
+    }
 }

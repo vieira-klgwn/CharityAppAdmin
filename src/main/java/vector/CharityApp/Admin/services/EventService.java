@@ -18,8 +18,8 @@ public class EventService {
         return eventRepository.save(event);
     }
 
-    public Event updateEvent(Event event){
-        Event eventExists = eventRepository.findById(event.getId()).orElseThrow(()-> new RuntimeException("Event with id " + event.getId() + " not found"));
+    public Event updateEvent(Event event, Long id){
+        Event eventExists = eventRepository.findById(id).orElseThrow(()-> new RuntimeException("Event with id " + id + " not found"));
         if (eventExists != null) {
             eventExists.setEventStatus(event.getEventStatus());
             eventExists.setStartDate(event.getStartDate());
@@ -43,11 +43,11 @@ public class EventService {
         throw new RuntimeException("Event with id " + event.getId() + " not found");
     }
 
-    public void deleteEvent(Event event){
-        if (eventRepository.findById(event.getId()).isEmpty()) {
-            throw new RuntimeException("Event with id " + event.getId() + " not found");
+    public void deleteEvent(Long id){
+        if (eventRepository.findById(id).isEmpty()) {
+            throw new RuntimeException("Event with id " + id + " not found");
         }
-        eventRepository.delete(event);
+        eventRepository.deleteById(id);
     }
 
     public Event getEventById(Long id){
